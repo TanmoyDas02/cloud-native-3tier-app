@@ -7,5 +7,12 @@ pipeline {
                 echo 'Hello World'
             }
         }
+
+        stage ('Workspace check') {
+            steps {
+                sh 'pwd'
+                sh 'ls -la'
+            }
+        }
     }
 }
