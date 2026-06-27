@@ -20,5 +20,17 @@ pipeline {
                 sh 'docker --version'
             }
         }
+
+        stage ('Build backend image') {
+            steps {
+                sh 'docker build -t efootball25-backend:latest ./app/efootball25/backend'
+            }
+        }
+
+        stage ('Build frontend image') {
+            steps {
+                sh 'docker build -t efootball25-frontend:latest ./app/efootball25/frontend'
+            }
+        }
     }
 }
