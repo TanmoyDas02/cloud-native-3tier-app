@@ -1,14 +1,12 @@
-version: "3.8"
-
 services:
   frontend:
-    image: frontend-docker-image:latest
+    image: tanmoydas02/efootball25-frontend:latest
     container_name: frontend
     ports:
       - "8080:80"
 
   backend:
-    image: backent-docker-image:latest
+    image: tanmoydas02/efootball25-backend:latest
     container_name: backend
     ports:
       - "3001:3001"
