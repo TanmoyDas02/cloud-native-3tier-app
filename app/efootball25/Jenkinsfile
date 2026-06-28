@@ -52,6 +52,15 @@ pipeline {
                 sh 'docker push tanmoydas02/efootball25-backend:latest'
                 sh 'docker push tanmoydas02/efootball25-frontend:latest'
             }
+        }
+
+        stage('Deploy with Docker Compose') {
+            steps {
+                dir('app/efootball25') {
+                    sh 'docker compose pull'
+                    sh 'docker compose up -d'
+                }
+            }
         }   
     }
 }
