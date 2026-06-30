@@ -54,14 +54,14 @@ pipeline {
             }
         }
 
-        stage('Deploy with Docker Compose') {
+        /*stage('Deploy with Docker Compose') {
             steps {
                 dir('app/efootball25') {
                     sh 'docker-compose pull'
                     sh 'docker-compose up -d'
                 }
             }
-        }
+        }*/
 
         stage ('Deploy to EC2') {
             steps {
@@ -69,8 +69,8 @@ pipeline {
                     sh '''
                         ssh -o StrictHostKeyChecking=no ubuntu@13.233.133.81 "
                             cd ~/efootball25 && 
-                            docker-compose pull &&
-                            docker-compose up -d
+                            docker compose pull &&
+                            docker compose up -d
                             "
                         '''
                 }
